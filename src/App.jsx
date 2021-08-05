@@ -7,17 +7,22 @@ import Footer from './components/Footer';
 import Character from './components/Character';
 
 import { Maps } from './config/Maps';
+import { createMapData } from './@core/utils/mapUtils';
 
 function App() {
   const mapRef = React.useRef();
   const charRef = React.useRef();
+  const [selectedMap, setSelectedMap] = React.useState('map-1');
+  const [mapData, setMapData] = React.useState(
+    createMapData(Maps[selectedMap].data, Maps[selectedMap].pathLayerName)
+  );
 
   return (
     <div className="App">
       <Logo />
       <div className="Game">
         <Frame>
-          <Map ref={mapRef} mapImage={Maps['map-1'].image}>
+          <Map ref={mapRef} mapImage={Maps[selectedMap].image}>
             <Character ref={charRef} startPos={{ x: 0, y: 0 }} />
           </Map>
         </Frame>
