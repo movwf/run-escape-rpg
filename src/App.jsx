@@ -17,6 +17,10 @@ function App() {
     createMapData(Maps[selectedMap].data, Maps[selectedMap].pathLayerName)
   );
 
+  React.useEffect(() => {
+    setMapData(createMapData(Maps[selectedMap].data, Maps[selectedMap].pathLayerName));
+  }, [selectedMap]);
+
   return (
     <div className="App">
       <Logo />
