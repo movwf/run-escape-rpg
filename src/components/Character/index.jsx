@@ -4,6 +4,9 @@ import { Characters } from '../../config/CharacterModels';
 
 const Character = React.forwardRef(({ startPos, pathLayerData, char }, ref) => {
   const charRef = ref;
+  const [pos, setPos] = React.useState({ x: 0, y: 0 });
+  const [direction, setDirection] = React.useState(0);
+  const [step, setStep] = React.useState(1);
 
   return (
     <div
