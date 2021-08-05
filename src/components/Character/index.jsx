@@ -13,6 +13,10 @@ const Character = React.forwardRef(({ startPos, pathLayerData, char, data }, ref
 
   useKeyPress((event) => {
     switch (event.keyCode) {
+      case KeyboardSettings.ESCAPE_KEY:
+        data.setOpenSettings((open) => !open);
+        break;
+
       case KeyboardSettings.SPACE_KEY:
         speedUp();
         break;

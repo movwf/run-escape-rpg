@@ -54,7 +54,7 @@ function App() {
               startPos={startPos}
               pathLayerData={mapData}
               char={selectedChar}
-              data={{ mapRef }}
+              data={{ mapRef, setOpenSettings }}
             />
           </Map>
         </Frame>
