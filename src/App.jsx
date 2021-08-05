@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import Frame from './components/Frame';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       <div className="Game">
         <Frame>Map</Frame>
       </div>
+      <Footer />
     </div>
   );
 }
