@@ -1,3 +1,5 @@
+/* eslint-disable no-nested-ternary */
+/* eslint-disable arrow-body-style */
 /* eslint-disable no-unused-expressions */
 import Directions from '../config/Directions';
 import { isAbleToWalk } from './utils/mapUtils';
@@ -39,4 +41,13 @@ export const move = (charRef, mapRef, pathLayerData, direction, setPos, setStep,
 
   setStep((step) => (step + 1) % 3); // Step animation
   setDirection(Directions[direction]); // Set player direction
+};
+
+/**
+ * Speed up player
+ */
+export const speedUp = () => {
+  // 2x step size boost
+  if (window.stepSize < maxStepSize) window.stepSize *= 2;
+  else window.stepSize = stepSize; // Reset step size
 };
