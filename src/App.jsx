@@ -11,6 +11,7 @@ import StartScreen from './components/StartScreen';
 
 import { Maps } from './config/Maps';
 import { createMapData, getStartPosition } from './@core/utils/mapUtils';
+import useLocalStorage from './hooks/useLocalStorage';
 
 function App() {
   const mapRef = React.useRef();
@@ -22,6 +23,7 @@ function App() {
   const [mapData, setMapData] = React.useState(
     createMapData(Maps[selectedMap].data, Maps[selectedMap].pathLayerName)
   );
+  const [playerPosition, setPlayerPosition] = useLocalStorage('run-escape-player', null);
 
   React.useEffect(() => {
     // Starting position of character
