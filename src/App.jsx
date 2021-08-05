@@ -1,10 +1,13 @@
 import React from 'react';
 import './App.css';
+import Frame from './components/Frame';
 
 function App() {
   return (
     <div className="App">
-      <span>Game Init</span>
+      <div className="Game">
+        <Frame>Map</Frame>
+      </div>
     </div>
   );
 }
