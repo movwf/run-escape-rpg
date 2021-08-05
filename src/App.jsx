@@ -1,4 +1,4 @@
-// eslint-disable react-hooks/exhaustive-deps
+/* eslint-disable react-hooks/exhaustive-deps */
 import React from 'react';
 import './App.css';
 import Map from './components/Map';
@@ -37,8 +37,10 @@ function App() {
   }, []);
 
   React.useEffect(() => {
+    const lastSavedPosition = playerPosition; // Get last saved position from local storage
+
     // Starting position of character
-    setStartPos(getStartPosition(mapData));
+    setStartPos(lastSavedPosition ? playerPosition : getStartPosition(mapData));
   }, [mapData]);
 
   React.useEffect(() => {
