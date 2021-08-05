@@ -60,3 +60,99 @@ export const getPlayerPosition = (mapRef, charRef) => {
 
   return { x: charOffsetTop - mapOffsetTop, y: charOffsetLeft - mapOffsetLeft };
 };
+
+/**
+ * Calculates if player is able to move next direction
+ * @param {Ref<HTMLElement>} charRef Character reference
+ * @param {Ref<HTMLElement>} mapRef Map reference
+ * @param {Object} pathLayerData Path layer data
+ * @param {String} direction Direction string
+ * @param {Number} stepSize Step size of player
+ * @returns Move permit boolean
+ */
+export const isAbleToWalk = (charRef, mapRef, pathLayerData, direction, stepSize) => {
+  const { map, tileHeight, tileWidth } = pathLayerData;
+  const { top: mapOffsetX, left: mapOffsetY } = getPositionOffsets(mapRef);
+  const {
+    offsetTop: top,
+    offsetLeft: left,
+    offsetHeight: charHeight,
+    offsetWidth: charWidth,
+  } = charRef.current;
+
+  // For up movement
+  if (direction === 'UP') {
+    const currentTopX = top - mapOffsetX - stepSize;
+    const currentTopY = left - mapOffsetY;
+
+    // Current tile position of player
+    const tileLocation = {
+      x: Math.floor(currentTopX / tileHeight),
+      y: Math.floor(currentTopY / tileWidth),
+    };
+
+    const able =
+      tileLocation.x !== map.length &&
+      tileLocation.y !== map[0].length &&
+      map[tileLocation.x][tileLocation.y] === 0;
+
+    return able;
+  }
+
+  // For down movement
+  if (direction === 'DOWN') {
+    const currentEndX = top - mapOffsetX + charHeight;
+    const currentEndY = left - mapOffsetY + charWidth;
+
+    // Current tile position of player
+    const tileLocation = {
+      x: Math.floor(currentEndX / tileHeight),
+      y: Math.floor(currentEndY / tileWidth),
+    };
+
+    const able =
+      tileLocation.x !== map.length &&
+      tileLocation.y !== map[0].length &&
+      map[tileLocation.x][tileLocation.y] === 0;
+
+    return able;
+  }
+
+  // For left movement
+  if (direction === 'LEFT') {
+    const currentTopX = top - mapOffsetX;
+    const currentTopY = left - mapOffsetY - stepSize;
+
+    // Current tile position of player
+    const tileLocation = {
+      x: Math.floor(currentTopX / tileHeight),
+      y: Math.floor(currentTopY / tileWidth),
+    };
+
+    const able =
+      tileLocation.x !== map.length &&
+      tileLocation.y !== map[0].length &&
+      map[tileLocation.x][tileLocation.y] === 0;
+
+    return able;
+  }
+
+  // For right movement
+  if (direction === 'RIGHT') {
+    const currentEndX = top - mapOffsetX + charHeight;
+    const currentEndY = left - mapOffsetY + charWidth;
+
+    // Current tile position of player
+    const tileLocation = {
+      x: Math.floor(currentEndX / tileHeight),
+      y: Math.floor(currentEndY / tileWidth),
+    };
+
+    const able =
+      tileLocation.x !== map.length &&
+      tileLocation.y !== map[0].length &&
+      map[tileLocation.x][tileLocation.y] === 0;
+
+    return able;
+  }
+};
