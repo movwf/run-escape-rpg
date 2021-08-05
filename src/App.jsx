@@ -14,6 +14,7 @@ function App() {
   const mapRef = React.useRef();
   const charRef = React.useRef();
   const [startPos, setStartPos] = React.useState({ x: 0, y: 0 });
+  const [selectedChar, setSelectedChar] = React.useState('char-1');
   const [selectedMap, setSelectedMap] = React.useState('map-1');
   const [mapData, setMapData] = React.useState(
     createMapData(Maps[selectedMap].data, Maps[selectedMap].pathLayerName)
@@ -34,7 +35,7 @@ function App() {
       <div className="Game">
         <Frame>
           <Map ref={mapRef} mapImage={Maps[selectedMap].image}>
-            <Character ref={charRef} startPos={startPos} />
+            <Character ref={charRef} startPos={startPos} char={selectedChar} />
           </Map>
         </Frame>
       </div>

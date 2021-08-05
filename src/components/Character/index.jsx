@@ -1,7 +1,8 @@
 import React from 'react';
 import Sprite from './Sprite';
+import { Characters } from '../../config/CharacterModels';
 
-const Character = React.forwardRef(({ startPos }, ref) => {
+const Character = React.forwardRef(({ startPos, char }, ref) => {
   const charRef = ref;
 
   return (
@@ -15,13 +16,7 @@ const Character = React.forwardRef(({ startPos }, ref) => {
         left: `${startPos.y}px`,
       }}
     >
-      <Sprite
-        spriteUrl="https://i.ibb.co/ry9mJ9f/char-1.png"
-        height={32}
-        width={32}
-        direction={0}
-        step={1}
-      />
+      <Sprite spriteUrl={Characters[char].sprite} height={32} width={32} direction={0} step={1} />
     </div>
   );
 });
