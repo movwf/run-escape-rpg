@@ -40,6 +40,7 @@ function App() {
               startPos={startPos}
               pathLayerData={mapData}
               char={selectedChar}
+              data={{ mapRef }}
             />
           </Map>
         </Frame>
