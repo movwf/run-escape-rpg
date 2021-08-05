@@ -5,6 +5,8 @@ import Logo from './components/Logo';
 import Frame from './components/Frame';
 import Footer from './components/Footer';
 
+import { Maps } from './config/Maps';
+
 function App() {
   const mapRef = React.useRef();
 
@@ -13,7 +15,7 @@ function App() {
       <Logo />
       <div className="Game">
         <Frame>
-          <Map ref={mapRef} mapImage="https://i.ibb.co/gJcWXnZ/boardgame.png">
+          <Map ref={mapRef} mapImage={Maps['map-1'].image}>
             Character
           </Map>
         </Frame>
