@@ -1,4 +1,5 @@
 import React from 'react';
+import Sprite from './Sprite';
 
 const Character = React.forwardRef(({ startPos }, ref) => {
   const charRef = ref;
@@ -14,7 +15,13 @@ const Character = React.forwardRef(({ startPos }, ref) => {
         left: `${startPos.y}px`,
       }}
     >
-      Sprite
+      <Sprite
+        spriteUrl="https://i.ibb.co/ry9mJ9f/char-1.png"
+        height={32}
+        width={32}
+        direction={0}
+        step={1}
+      />
     </div>
   );
 });
