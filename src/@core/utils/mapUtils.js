@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 /* eslint-disable no-labels */
 /* eslint-disable no-restricted-syntax */
 import explodeArray from '../../utils/explodeArray';
