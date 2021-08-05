@@ -10,7 +10,7 @@ import Character from './components/Character';
 import StartScreen from './components/StartScreen';
 
 import { Maps } from './config/Maps';
-import { createMapData, getStartPosition } from './@core/utils/mapUtils';
+import { createMapData, getStartPosition, getPlayerPosition } from './@core/utils/mapUtils';
 import useLocalStorage from './hooks/useLocalStorage';
 
 function App() {
@@ -24,6 +24,17 @@ function App() {
     createMapData(Maps[selectedMap].data, Maps[selectedMap].pathLayerName)
   );
   const [playerPosition, setPlayerPosition] = useLocalStorage('run-escape-player', null);
+
+  React.useEffect(() => {
+    const autoSavePlayerPositionData = setInterval(() => {
+      setPlayerPosition(getPlayerPosition(mapRef, charRef));
+    }, 10000);
+
+    // Save last position data on exit
+    return () => {
+      clearInterval(autoSavePlayerPositionData);
+    };
+  }, []);
 
   React.useEffect(() => {
     // Starting position of character
