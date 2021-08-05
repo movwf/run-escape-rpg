@@ -1,6 +1,7 @@
 /* eslint-disable no-labels */
 /* eslint-disable no-restricted-syntax */
 import explodeArray from '../../utils/explodeArray';
+import getPositionOffsets from '../../utils/getPositionOffsets';
 
 /**
  * Creates map matrix from data
@@ -45,4 +46,17 @@ export const getStartPosition = (pathLayerData) => {
     x: firstAvailableTile.x * tileHeight,
     y: firstAvailableTile.y * tileWidth,
   };
+};
+
+/**
+ * Calculates player's current position
+ * @param {Ref<HTMLElement>} mapRef Map reference
+ * @param {Ref<HTMLElement} charRef Player reference
+ * @returns Player's position
+ */
+export const getPlayerPosition = (mapRef, charRef) => {
+  const { top: mapOffsetTop, left: mapOffsetLeft } = getPositionOffsets(mapRef);
+  const { top: charOffsetTop, left: charOffsetLeft } = getPositionOffsets(charRef);
+
+  return { x: charOffsetTop - mapOffsetTop, y: charOffsetLeft - mapOffsetLeft };
 };
