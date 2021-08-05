@@ -7,6 +7,7 @@ import Logo from './components/Logo';
 import Frame from './components/Frame';
 import Footer from './components/Footer';
 import Character from './components/Character';
+import StartScreen from './components/StartScreen';
 
 import { Maps } from './config/Maps';
 import { createMapData, getStartPosition } from './@core/utils/mapUtils';
@@ -15,6 +16,7 @@ function App() {
   const mapRef = React.useRef();
   const charRef = React.useRef();
   const [startPos, setStartPos] = React.useState({ x: 0, y: 0 });
+  const [openSettings, setOpenSettings] = React.useState(true);
   const [selectedChar, setSelectedChar] = React.useState('char-1');
   const [selectedMap, setSelectedMap] = React.useState('map-1');
   const [mapData, setMapData] = React.useState(
@@ -35,6 +37,17 @@ function App() {
       <Logo />
       <div className="Game">
         <Frame>
+          {openSettings && (
+            <StartScreen
+              {...{
+                selectedMap,
+                setSelectedMap,
+                selectedChar,
+                setSelectedChar,
+                setOpenSettings,
+              }}
+            />
+          )}
           <Map ref={mapRef} mapImage={Maps[selectedMap].image}>
             <Character
               ref={charRef}
