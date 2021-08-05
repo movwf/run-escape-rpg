@@ -2,6 +2,7 @@
 import React from 'react';
 import './App.css';
 import Map from './components/Map';
+import Info from './components/Info';
 import Logo from './components/Logo';
 import Frame from './components/Frame';
 import Footer from './components/Footer';
@@ -44,6 +45,7 @@ function App() {
             />
           </Map>
         </Frame>
+        <Info />
       </div>
       <Footer />
     </div>
