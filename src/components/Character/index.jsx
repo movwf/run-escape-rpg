@@ -2,7 +2,7 @@ import React from 'react';
 import Sprite from './Sprite';
 import { Characters } from '../../config/CharacterModels';
 
-const Character = React.forwardRef(({ startPos, char }, ref) => {
+const Character = React.forwardRef(({ startPos, pathLayerData, char }, ref) => {
   const charRef = ref;
 
   return (

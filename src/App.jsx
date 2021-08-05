@@ -35,7 +35,12 @@ function App() {
       <div className="Game">
         <Frame>
           <Map ref={mapRef} mapImage={Maps[selectedMap].image}>
-            <Character ref={charRef} startPos={startPos} char={selectedChar} />
+            <Character
+              ref={charRef}
+              startPos={startPos}
+              pathLayerData={mapData}
+              char={selectedChar}
+            />
           </Map>
         </Frame>
       </div>
