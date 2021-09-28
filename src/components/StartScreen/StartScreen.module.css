@@ -1,0 +1,119 @@
+.startScreen {
+  z-index: 10;
+  position: fixed;
+  width: 480px;
+  height: 480px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.chevron {
+  position: absolute;
+  right: 2px;
+}
+
+.characterSelectLabel {
+  font-size: 18px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bold;
+}
+
+.characterSelect {
+  height: 32px;
+  width: 48px;
+  margin-top: 10px;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: relative;
+  display: flex;
+  flex: row;
+  align-items: center;
+  border-radius: 10%;
+  outline: none;
+}
+
+.characterSelect:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.characterOptionContainer {
+  z-index: 30;
+  position: absolute;
+  height: 128px;
+  top: 32px;
+  left: 0;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.characterOption {
+  width: 32px;
+  height: 32px;
+  background-color: white;
+}
+
+.characterOption:hover {
+  outline: 1px solid black;
+}
+
+.mapSelectLabel {
+  font-size: 18px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bold;
+}
+
+.mapSelect {
+  height: 96px;
+  width: 138px;
+  margin-top: 10px;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: relative;
+  display: flex;
+  flex: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5%;
+  outline: none;
+}
+
+.selectedMapImage {
+  height: 84px;
+  width: 84px;
+}
+
+.mapSelect:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.mapOptionContainer {
+  position: absolute;
+  height: 130px;
+  top: 96px;
+  left: 0;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.mapOption {
+  width: 128px;
+  height: 128px;
+  background-size: 128px;
+  border: 1px solid black;
+}
+
+.mapOption:hover {
+  opacity: 85%;
+}
+
+.startButton {
+  font-size: 24px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bold;
+  appearance: none;
+  color: white;
+  border-radius: 10px;
+  background-color: black;
+}

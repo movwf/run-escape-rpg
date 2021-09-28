@@ -1,0 +1,7 @@
+.frame {
+  height: 500px;
+  width: 500px;
+  background-image: url('https://i.ibb.co/QXSjbzB/Frame.png');
+  background-repeat: no-repeat;
+  padding: 10px;
+}
